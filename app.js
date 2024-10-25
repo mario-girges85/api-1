@@ -21,7 +21,11 @@ mongoose
   .catch((err) => {
     console.log("Failed to connect to MongoDB", err);
   });
-
+app.get("/", (req, res) => {
+  res.send(
+    "<a href='https://api-ochre-seven-79.vercel.app/products'>Products</a> | <a href='https://api-ochre-seven-79.vercel.app/users'>Users</a>"
+  );
+});
 app.use("/products", Products);
 app.use("/users", User);
 

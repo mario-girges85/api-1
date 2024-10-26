@@ -3,15 +3,20 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import Products from "./routes/product.js";
 import User from "./routes/user.js";
+import cors from "cors";
 
 dotenv.config();
-
 const app = express();
 const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static("uploads"));
-// app.use(cors("*"));
+
+const corsOptions = {
+  origin: "http://localhost:5173", // Replace with your frontend's URL
+  origin: "https://ecommercedepi.vercel.app/", // Replace with your frontend's URL
+};
+app.use(cors(corsOptions));
 
 mongoose
   .connect(process.env.MONGO_URI)

@@ -10,6 +10,7 @@ const app = express();
 const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/uploads", express.static("uploads"));
 
 app.use(cors());
 
@@ -24,7 +25,15 @@ mongoose
 app.get("/", (req, res) => {
   res.send("<a href='/products'>Products</a> | <a href='/users'>Users</a>");
 });
-
+//test
+app.patch("/", (req, res) => {
+  res.send("<a href='/products'>Products</a> | <a href='/users'>Users</a>");
+});
+// 2
+app.post("/", (req, res) => {
+  res.send("<a href='/products'>Products</a> | <a href='/users'>Users</a>");
+});
+//=======
 app.use("/products", Products);
 app.use("/users", User);
 

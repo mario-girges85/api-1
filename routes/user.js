@@ -52,6 +52,17 @@ router.patch("/:id", async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
+//2
+router.post("/:id", async (req, res) => {
+  try {
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    res.status(201).json(updatedUser);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
 //===========
 
 router.delete("/:id", async (req, res) => {

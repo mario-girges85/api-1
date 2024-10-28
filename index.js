@@ -29,6 +29,10 @@ app.get("/", (req, res) => {
 app.patch("/", (req, res) => {
   res.send("<a href='/products'>Products</a> | <a href='/users'>Users</a>");
 });
+// 2
+app.post("/", (req, res) => {
+  res.send("<a href='/products'>Products</a> | <a href='/users'>Users</a>");
+});
 //=======
 app.use("/products", Products);
 app.use("/users", User);

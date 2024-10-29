@@ -22,8 +22,13 @@ mongoose
   .catch((err) => {
     console.log("Failed to connect to MongoDB", err);
   });
+// app.get("/", (req, res) => {
+//   res.send("<a href='/products'>Products</a> | <a href='/users'>Users</a>");
+// });
 app.get("/", (req, res) => {
-  res.send("<a href='/products'>Products</a> | <a href='/users'>Users</a>");
+  res.send(
+    "<a href='https://api-ochre-seven-79.vercel.app/products'>Products</a> | <a href='https://api-ochre-seven-79.vercel.app/users'>Users</a>"
+  );
 });
 //test
 app.patch("/", (req, res) => {

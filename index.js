@@ -6,11 +6,12 @@ import User from "./routes/user.js";
 import cors from "cors";
 
 dotenv.config();
+
 const app = express();
 const port = 3000;
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/uploads", express.static("uploads"));
 
 app.use(cors());
 
@@ -22,23 +23,11 @@ mongoose
   .catch((err) => {
     console.log("Failed to connect to MongoDB", err);
   });
-// app.get("/", (req, res) => {
-//   res.send("<a href='/products'>Products</a> | <a href='/users'>Users</a>");
-// });
+
 app.get("/", (req, res) => {
-  res.send(
-    "<a href='https://api-ochre-seven-79.vercel.app/products'>Products</a> | <a href='https://api-ochre-seven-79.vercel.app/users'>Users</a>"
-  );
-});
-//test
-app.patch("/", (req, res) => {
   res.send("<a href='/products'>Products</a> | <a href='/users'>Users</a>");
 });
-// 2
-app.post("/", (req, res) => {
-  res.send("<a href='/products'>Products</a> | <a href='/users'>Users</a>");
-});
-//=======
+
 app.use("/products", Products);
 app.use("/users", User);
 

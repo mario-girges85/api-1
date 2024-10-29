@@ -1,13 +1,8 @@
 import express from "express";
 import User from "../models/user.js";
-import cors from "cors";
+
 const router = express.Router();
-app.use(
-  cors({
-    origin: "*", // Allow all origins
-    methods: ["GET", "POST", "PUT", "DELETE"],
-  })
-);
+
 router.get("/", async (req, res) => {
   try {
     const users = await User.find();
